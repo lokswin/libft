@@ -1,0 +1,6 @@
+01•ft_lstnew
+02•ft_lstdelone
+03•ft_lstdel
+04•ft_lstadd
+05•ft_lstiter
+06•ft_lstmap

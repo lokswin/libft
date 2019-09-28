@@ -1,0 +1,11 @@
+10)forum
+1)run all _chk;
+2)42_checker;
+3)memory leaks in strsplit, segfault in strnew, lstadd, memory leaks in lstmap;
+4)const char char const
+5)read all man
+6)free where it is need
+7)headers /*/
+
+
+

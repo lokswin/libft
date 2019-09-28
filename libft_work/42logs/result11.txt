@@ -1,0 +1,159 @@
+ft_memset:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_bzero:      [OK] [OK] [OK] [OK] 
+ft_memcpy:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_memccpy:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_memmove:    [MISSING]
+ft_memchr:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_memcmp:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_strlen:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_strdup:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_strcpy:     [OK] [FAILED] [OK] [FAILED] [OK] [OK] [CRASH] [OK] [OK] 
+[fail]: your strcpy return value is false / your strcpy does not work
+Test code:
+	char *src = "--> nyancat <--\n\r";
+	char dst1[30];
+
+	__builtin___memset_chk (dst1, 'a', sizeof(dst1), __builtin_object_size (dst1, 0));
+	char *r1 = __builtin___strcpy_chk (dst1, src, __builtin_object_size (dst1, 2 > 1 ? 1 : 0));
+	char *r2 = ft_strcpy(dst1, src);
+	if (r1 != r2)
+		exit(TEST_FAILED);
+	char b[1];
+	r1 = __builtin___strcpy_chk (b, "", __builtin_object_size (b, 2 > 1 ? 1 : 0));
+	r2 = ft_strcpy(b, "");
+	if (r1 != r2)
+		exit(TEST_FAILED);
+	exit(TEST_SUCCESS);
+
+Diffs:
+      strcpy: |--> nyancat <--
+|
+   ft_strcpy: |yaaaaaaaaaaa|
+
+[fail]: your strcpy overflow the dst !
+Test code:
+	char *src = "AAAA";
+	char dst1[80];
+	char dst2[80];
+
+	__builtin___memset_chk (dst1, 'B', sizeof(dst1), __builtin_object_size (dst1, 0));
+	__builtin___memset_chk (dst2, 'B', sizeof(dst2), __builtin_object_size (dst2, 0));
+	__builtin___strcpy_chk (dst1, src, __builtin_object_size (dst1, 2 > 1 ? 1 : 0));
+	ft_strcpy(dst2, src);
+	if (memcmp(dst1, dst2, 20))
+	{
+		for (register int __i = 0; __i < 20; ++__i)
+		for (register int __i = 0; __i < 20; ++__i)
+		exit(TEST_FAILED);
+	}
+	exit(TEST_SUCCESS);
+
+Diffs:
+      strcpy: |\x41 \x41 \x41 \x41 \x0  \x42 \x42 \x42 \x42 \x42 \x42 \x42 \x42 \x42 \x42 \x42 \x42 \x42 \x42 \x42 |
+   ft_strcpy: |\x41 \x41 \x41 \x41 \x0  \x79 \x42 \x42 \x42 \x42 \x42 \x42 \x42 \x42 \x42 \x42 \x42 \x42 \x42 \x42 |
+
+[crash]: your strcpy crash because it read too many bytes or attempt to read on dst !
+Test code:
+	const size_t size = 10;
+	char *src = "AAAAAAAAB";
+	char *dst = electric_alloc(size);
+
+	ft_strcpy(dst, src);
+	exit(TEST_SUCCESS);
+
+
+ft_strncpy:    [MISSING]
+ft_strcat:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_strncat:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_strlcat:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_strchr:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_strrchr:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_strstr:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_strnstr:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_strcmp:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_strncmp:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_atoi:       [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_isalpha:    [OK] 
+ft_isdigit:    [OK] 
+ft_isalnum:    [OK] 
+ft_isascii:    [OK] 
+ft_isprint:    [OK] 
+ft_toupper:    [OK] 
+ft_tolower:    [OK] 
+ft_memalloc:   [OK] [OK] [OK] [OK] [OK] 
+ft_memdel:     [OK] [OK] {protected}
+ft_strnew:     [OK] [OK] [OK] [OK] 
+ft_strdel:     [OK] [OK] {protected}
+ft_strclr:     [OK] {protected}
+ft_striter:    [OK] [OK] {protected}
+ft_striteri:   [OK] [OK] {protected}
+ft_strmap:     [OK] [OK] [OK] [OK] [OK] {protected}
+ft_strmapi:    [OK] [OK] [OK] [OK] [OK] {protected}
+ft_strequ:     [OK] [OK] [OK] [OK] {protected}
+ft_strnequ:    [OK] [OK] [OK] [OK] {protected}
+ft_strsub:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] {protected}
+ft_strjoin:    [OK] [OK] [OK] [OK] [OK] {not protected}
+ft_strtrim:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] {not protected}
+ft_strsplit:   [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] {protected}
+ft_itoa:       [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [CRASH] 
+[crash]: your itoa did not allocate memory for the int min value
+Test code:
+	char *i1 = ft_itoa((-2147483647 -1));
+
+	fd_to_buffer(2);
+	free(i1);
+	write(2, "", 1);
+	get_fd_buffer(2, ((void *)0), 0);
+	exit(TEST_SUCCESS);
+
+
+ft_putchar:    [OK] [OK] [KO] 
+[KO]: your putchar does not work with unicode
+Test code:
+	char buff[10];
+	char buff2[10];
+	int c = L'ø';
+	int len = 0;
+
+	putwchart(c, &len, buff2);
+	buff2[len] = 0;
+	fd_to_buffer(1);
+	ft_putchar(c);
+	write(1, "", 1);
+	get_fd_buffer(1, buff, 10);
+	if (!strcmp(buff, buff2))
+		exit(TEST_SUCCESS);
+	exit(TEST_KO);
+
+Diffs:
+     putchar: |�|
+  ft_putchar: |ø|
+
+ft_putstr:     [OK] [OK] {protected}
+ft_putendl:    [OK] [OK] {protected}
+ft_putnbr:     [OK] [OK] [OK] [OK] [OK] 
+ft_putchar_fd: [OK] [OK] [KO] 
+[KO]: your putchar_fd does not work with unicode
+Test code:
+	char buff[10];
+	char buff2[10];
+	int c = L'ø';
+	int len = 0;
+
+	putwchart(c, &len, buff2);
+	buff2[len] = 0;
+	fd_to_buffer(2);
+	ft_putchar_fd(c, 2);
+	write(2, "", 1);
+	get_fd_buffer(2, buff, 10);
+	if (!strcmp(buff, buff2))
+		exit(TEST_SUCCESS);
+	exit(TEST_KO);
+
+Diffs:
+  putchar_fd: |�|
+ft_putchar_fd: |ø|
+
+ft_putstr_fd:  [OK] [OK] {protected}
+ft_putendl_fd: [OK] [OK] {protected}
+ft_putnbr_fd:  [OK] [OK] [OK] [OK] [OK] 

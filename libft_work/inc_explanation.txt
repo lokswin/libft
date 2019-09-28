@@ -1,0 +1,136 @@
+[Yellow Tests] are Hardcore
+
+
+Test [memchr] : OK
+
+
+Test [strl1b Error Line 1397, Funct uf_test_strlcat FAIL
+
+
+Test [strnstr] : Error Line 1298, Funct uf_test_strnstr FAIL
+
+
+Test [strncmp] : Error Line 1235, Funct uf_test_strncmp FAIL
+Test [atoi] : Error Line 1149, Funct uf_test_atoi FAIL
+
+
+
+
+
+Test [strjoin] : Segmentation Fault
+
+Test [strsplit] : main(18420,0x7fffd30e43c0) malloc: *** error for object 0x1000000000000000: pointer being freed was not allocated
+*** set a breakpoint in malloc_error_break to debug
+The processus receive the signal 6
+
+
+Test [strtrim] : Segmentation Fault
+
+
+
+/*for NULL and size_t*/
+#include <string.h>
+
+/*for malloc & free*/
+#include <stdlib.h>
+
+/*for write*/
+#include <unistd.h>
+
+ft_strncpy : ft_strnlen + ft_strcpy + ft_bzero
+
+
+01 • void *memset(void *b, int c, size_t len); 					[OK]
+02 • void bzero(void *s, size_t n);						[OK]03 • void *memcpy(void *dst, const void *src, size_t n);			[OK]
+04 •void *memccpy(void *dst, const void *src, int c, size_t n);			[OK]
+05 • void *memmove(void *dst, const void *src, size_t len);			[OK]
+06 • void *memchr(const void *s, int c, size_t n);				[OK]
+07 • int memcmp(const void *s1, const void *s2, size_t n);			[OK]
+08 • size_t strlen(const char *s);						[OK]
+09 • char *strdup(const char *s1);						[OK]
+10 • char *strcpy(char *dst, const char *src);					[OK]
+11 • char *strncpy(char *dst, const char *src, size_t len);			[OK]
+12 • char *strcat(char *s1, const char *s2);					[OK]
+13 • char *strncat(char *s1, const char *s2, size_t n);				[OK]
+14 • size_t strlcat(char *dst, const char *src, size_t size);	 		[OK]
+15 • char *strchr(const char *s, int c);					[OK]
+16 • char *strrchr(const char *s, int c);					[OK]
+17 • char *strstr(const char *haystack, const char *needle);			[OK]
+18 • char *strnstr(const char *haystack, const char *needle, size_t len);	[OK]
+19 • int strcmp(const char *s1, const char *s2);				[OK]
+20 • int strncmp(const char *s1, const char *s2, size_t n);			[OK]
+21 • int atoi(const char *str);							[OK]22 • int isalpha(int c);							[OK]
+23 • int isdigit(int c);							[OK]24 • int isalnum(int c);							[OK]25 • int isascii(int c);							[OK]26 • int isprint(int c);							[OK]27 • int toupper(int c);							[OK]28 • int tolower(int c);							[OK]
+
+———————————————————————part_2———————————————————————
+
+01 • void *ft_memalloc(size_t size);						[OK]
+02 • void ft_memdel(void **ap);							[OK]
+03 • char *ft_strnew(size_t size);						[OK]
+04 • void ft_strdel(char **as);							[OK]
+05 • void ft_strclr(char *s);							[OK]
+06 • void ft_striter(char *s, void (*f)(char *));				[OK]
+07 • void ft_striteri(char *s, void (*f)(unsigned int, char *));		[OK]
+08 • char *ft_strmap(char const *s, char (*f)(char));				[OK]
+09 • char *ft_strmapi(char const *s, char (*f)(unsigned int, char));		[OK]
+10 • int ft_strequ(char const *s1, char const *s2);				[OK]
+11 • int ft_strnequ(char const *s1, char const *s2, size_t n);			[OK]
+12 • char *ft_strsub(char const *s, unsigned int start, size_t len);		[OK]
+13 • char *ft_strjoin(char const *s1, char const *s2);				[OK]
+14 • char *ft_strtrim(char const *s);						[OK]
+15 • char **ft_strsplit(char const *s, char c);					[OK]
+16 • char *ft_itoa(int n);							[OK]
+17 • void ft_putchar(char c);							[OK]
+18 • void ft_putstr(char const *s);						[OK]
+19 • void ft_putendl(char const *s);						[OK]
+20 • void ft_putnbr(int n);							[OK]
+21 • void ft_putchar_fd(char c, int fd);					[OK]
+22 • void ft_putstr_fd(char const *s, int fd);					[OK]
+23 • void ft_putendl_fd(char const *s, int fd);					[OK]
+24 • void ft_putnbr_fd(int n, int fd);						[OK]
+
+1 • t_list *ft_lstnew(void const *content, size_t content_size);
+2 • void ft_lstdelone(t_list **alst, void(*del)(void *, size_t));
+3 • void ft_lstdel(t_list **alst, void (*del)(void*, size_t));
+4 • void ft_lstadd(t_list **alst, t_list *new);
+5 • void ft_lstiter(t_list *lst, void (*f)(t_list *elem));
+6 • t_list *ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+
+"Hello les genw"
+if (strnstr(str, "Hello", 6) != ft_strnstr(str, "Hello", 6))
+        D_ERROR;
+    if (strnstr(str, "Hello", 3) != ft_strnstr(str, "Hello", 3))
+        D_ERROR;
+    if (strnstr(str, "les", 1) != ft_strnstr(str, "les", 1))
+        D_ERROR;
+
+DONE-	done without file
+DONEf	have file chk
+[OK]	checker
+DONEc	DONEt + checker
+
+28 + 24 54
+
+17/54
+
+
+    const unsigned char *cast1;
+    const unsigned char *cast2;
+
+    cast1 = s1;
+    cast2 = s2;
+    if (n <= 0)
+        return (0);
+    if (!cast1)
+        return (-(*cast2));
+    if (!cast2)
+        return (*cast1);
+    while (*cast1 == *cast2)
+    {
+	if (*cast1 == '\0')
+            return (0);
+        cast1++;
+        cast2++;
+    }
+    return (*cast1 - *cast2);
+}

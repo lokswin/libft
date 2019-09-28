@@ -1,0 +1,21 @@
+void	printbits(uint64_t x)
+{
+	int i;
+	
+	i = 64;
+	while(i)
+	{
+		if (!(i % 16))
+			ft_putchar('\n');
+		ft_putchar('0' + ((x >> (i - 1)) & 1));
+		i--;
+	}
+}
+ 
+int		main(void)
+ {
+	uint16_t    arr[4] = {0};
+
+	arr[0] = 0xFFFF;
+	printbits(*(uint64_t*)arr);
+ }

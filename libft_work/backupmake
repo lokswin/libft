@@ -1,0 +1,111 @@
+#******************************************************************************#
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: drafe <marvin@42.fr>                       +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2019/04/12 20:00:16 by drafe             #+#    #+#              #
+#    Updated: 2019/04/29 17:17:01 by drafe            ###   ########.fr        #
+#                                                                              #
+#******************************************************************************#
+
+CC = gcc
+
+CFLAGS = -I
+
+NAME = libft.a
+
+OBJ = ft_memset.o\
+	ft_bzero.o\
+	ft_memcpy.o\
+	ft_strlen.o\
+	ft_strdup.o\
+	ft_strcmp.o\
+	ft_isalpha.o\
+	ft_isdigit.o\
+	ft_isalnum.o\
+	ft_isascii.o\
+	ft_isprint.o\
+	ft_toupper.o\
+	ft_tolower.o\
+	ft_strclr.o\
+	ft_putchar.o\
+	ft_putstr.o\
+	ft_putendl.o\
+	ft_putnbr.o\
+	ft_putchar_fd.o\
+	ft_putstr_fd.o\
+	ft_putendl_fd.o\
+	ft_putnbr_fd.o
+
+SRC = $(wildcard ft_memset.c)\
+	$(wildcard ft_bzero.c)\
+	$(wildcard ft_memcpy.c)\
+	$(wildcard ft_memccpy.c)\
+	$(wildcard ft_memmove.c)\
+	$(wildcard ft_memchr.c)\
+	$(wildcard ft_memcmp.c)\
+	$(wildcard ft_strlen.c)\
+	$(wildcard ft_strdup.c)\
+	$(wildcard ft_strcpy.c)\
+	$(wildcard ft_strncpy.c)\
+	$(wildcard ft_strcat.c)\
+	$(wildcard ft_strncat.c)\
+	$(wildcard ft_strlcat.c)\
+	$(wildcard ft_strchr.c)\
+	$(wildcard ft_strrchr.c)\
+	$(wildcard ft_strstr.c)\
+	$(wildcard ft_strnstr.c)\
+	$(wildcard ft_strcmp.c)\
+	$(wildcard ft_strncmp.c)\
+	$(wildcard ft_atoi.c)\
+	$(wildcard ft_isalpha.c)\
+	$(wildcard ft_isdigit.c)\
+	$(wildcard ft_isalnum.c)\
+	$(wildcard ft_isascii.c)\
+	$(wildcard ft_isprint.c)\
+	$(wildcard ft_toupper.c)\
+	$(wildcard ft_tolower.c)\
+	$(wildcard ft_memalloc.c)\
+	$(wildcard ft_memdel.c)\
+	$(wildcard ft_strnew.c)\
+	$(wildcard ft_strdel.c)\
+	$(wildcard ft_strclr.c)\
+	$(wildcard ft_striter.c)\
+	$(wildcard ft_striteri.c)\
+	$(wildcard ft_strmap.c)\
+	$(wildcard ft_strmapi.c)\
+	$(wildcard ft_strequ.c)\
+	$(wildcard ft_strnequ.c)\
+	$(wildcard ft_strsub.c)\
+	$(wildcard ft_strjoin.c)\
+	$(wildcard ft_strtrim.c)\
+	$(wildcard ft_strsplit.c)\
+	$(wildcard ft_itoa.c)\
+	$(wildcard ft_putchar.c)\
+	$(wildcard ft_putstr.c)\
+	$(wildcard ft_putendl.c)\
+	$(wildcard ft_putnbr.c)\
+	$(wildcard ft_putchar_fd.c)\
+	$(wildcard ft_putstr_fd.c)\
+	$(wildcard ft_putendl_fd.c)\
+	$(wildcard ft_putnbr_fd.c)
+
+INCLUDES = libft.h
+
+%.o: %.c $(INCLUDES)
+	$(CC) $(CFLAGS) -c -o $(OBJ)
+
+all: $(NAME)
+
+$(NAME):
+	$(CC) $(CFLAGS) $(SRC) -c
+	ar r $(NAME) $(OBJ)
+	ranlib $(NAME)
+clean:
+	@rm -rf $(OBJ)
+fclean: clean
+	@rm $(NAME)
+
+re: fclean all

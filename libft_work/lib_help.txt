@@ -1,0 +1,63 @@
+
+      while (*name=='/')
+              name++;
+       if (!*name)
+              return 0;
+
+gcc -Wall -Werror -Wextra ft_
+
+gcc -Wall -Werror -Wextra ft_ftchk.c ft_putchar.c ft_putnbr.c ft_isalpha.c
+
+Diff (-неверно + верно
+
+find . \( -name "*~" -o -name "#*#" -o -name ".DS_Store" \) -print -exec rm -rf {} +%
+
+norminette -R CheckForbiddenSourceHeader *
+
+*args[i] > *args[i + 1]
+
+#include <unistd.h>
+
+Emacs
+
+time;./a.out;time
+
+4)выучить https://cpp.com.ru/kr_cbook/ch5kr.html
+Вторая программа, которую мы здесь рассмотрим, это strcmp(s,t). Она сравнивает символы строк s и t и возвращает отрицательное, нулевое или положительное значение, если строка s соответственно лексикографически меньше, равна или больше, чем строка t. Результат получается вычитанием первых несовпадающих символов из s и t.
+
+/* strcmp: выдает < 0 при s < t, 0 при s == t, > 0 при s > t */
+int strcmp(char *s, char *t)
+{
+    int i;
+    for (i = 0; s[i]== t[i]; i++)
+        if (s[i] == '\0')
+            return 0;
+    return s[i] - t[i]; 
+}
+Та же программа с использованием указателей выглядит так:
+
+/* strcmp: выдает < 0 при s < t, 0 при s == t, > 0 при s > t */
+int strcmp(char *s, char *t)
+{
+    for ( ; *s == *t; s++, t++)
+        if (*s == '\0')
+            return 0;
+    return *s - *t;
+}
+——————————————————————————————
+
+ Поскольку операторы ++ и -- могут быть или префиксными, или постфиксными, встречаются (хотя и не так часто) другие их сочетания с оператором *. Например.
+
+*--p;
+уменьшит p прежде, чем по этому указателю будет получен символ. Например, следующие два выражения:
+
+*p++ = val; /* поместить val в стек */
+val = *--p; /* взять из стека значение и поместить в val */
+oa-e4% top -n 9000
+
+
+int n = *(&arr + 1) - arr;
+
+
+Man instruments
+
